@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="28 de pătrate colorate desenate folosind biblioteca p5.js">
+    <title>28 de Pătrate Colorate</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #canvasContainer {
+            border: 2px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvasContainer"></div>
+
+    <script>
+        function setup() {
+            let canvas = createCanvas(800, 800);
+            canvas.parent('canvasContainer');
+            noLoop(); // Desenează o singură dată
+        }
+
+        function draw() {
+            background(255); // Fundal alb
+            drawBoxes(7, 4); // 7 coloane și 4 rânduri
+        }
+
+        function drawBoxes(cols, rows) {
+            let boxWidth = width / cols;
+            let boxHeight = height / rows;
+
+            for (let i = 0; i < cols; i++) {
+                for (let j = 0; j < rows; j++) {
+                    fill(random(255), random(255), random(255)); // Culoare aleatoare
+                    stroke(0); // Contur negru
+                    rect(i * boxWidth, j * boxHeight, boxWidth, boxHeight);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
